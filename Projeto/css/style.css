@@ -1,0 +1,67 @@
+body{
+    font: tahoma,arial, sans-serif;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    
+}
+.barra-superior{
+    background: #aaa;
+    padding: 5px;
+    position: relative;
+    width: 100%;
+}
+.barra-superior .logo{
+    background: #ccc;
+    display: inline-block;
+    position: relative;
+    border-radius: 20%;
+    height: 4em;
+    width: 9em;
+    transition: all .5s;
+}
+.barra-superior .logo:hover{
+    background: #eee;
+}
+
+.barra-superior .logo img{
+    border-radius: .5em;
+    padding: 5%;
+    position: relative;
+    height: 3em;
+}
+
+.barra-superior .logo h1{
+    font-size: 16px;
+    display: inline-block;
+    position: relative;
+    bottom: 1.5em;
+    font-size: 18px;
+    font: arial;
+}
+.barra-superior .opcao-log{
+    display: inline-block;
+    position: absolute;
+    top: 10%;
+    left: 85%;
+    height: 80%;
+}
+
+.barra-superior .opcao-log button{
+    background-color: white;
+    border: 2px solid black;
+    position: relative;
+    height: 70%;
+    width: 40%;
+    border-radius: 25%;
+    top: 15%;
+}
+
+.barra-superior .opcao-log button img{
+    position: relative;
+    height: 80%;
+}
+
+.barra-superior nav{
+    
+}
