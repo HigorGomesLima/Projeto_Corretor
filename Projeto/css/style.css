@@ -6,9 +6,10 @@ body{
     
 }
 .barra-superior{
-    background: #aaa;
+    background: white;
     padding: 5px;
     width: 100%;
+    border: 3px solid black;
 }
 .barra-superior .logo{
     background: #ccc;
@@ -48,9 +49,12 @@ body{
     align-items: center;
     margin: .5em;
     background: white;
+    border: 2px solid black;
     overflow: auto;
     display: inline-block;
     border-radius: 10%;
+    padding: .5em;
+    transition: all .5s;
 }
 
 .barra-superior .opcao-log div:hover{
@@ -58,7 +62,7 @@ body{
 }
 
 .barra-superior .opcao-log img{
-    height: 3em;
+    height: 2em;
 }
 
 .menu-principal{
