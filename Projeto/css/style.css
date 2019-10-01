@@ -8,13 +8,11 @@ body{
 .barra-superior{
     background: #aaa;
     padding: 5px;
-    position: relative;
     width: 100%;
 }
 .barra-superior .logo{
     background: #ccc;
     display: inline-block;
-    position: relative;
     border-radius: 20%;
     height: 4em;
     width: 9em;
@@ -27,7 +25,6 @@ body{
 .barra-superior .logo img{
     border-radius: .5em;
     padding: 5%;
-    position: relative;
     height: 3em;
 }
 
@@ -40,28 +37,35 @@ body{
     font: arial;
 }
 .barra-superior .opcao-log{
+    display: flex;
+    height: 3em;
     display: inline-block;
-    position: absolute;
-    top: 10%;
-    left: 85%;
-    height: 80%;
+    margin-left: 75%;
+    top: 1em;
 }
 
-.barra-superior .opcao-log button{
-    background-color: white;
-    border: 2px solid black;
-    position: relative;
-    height: 70%;
-    width: 40%;
-    border-radius: 25%;
-    top: 15%;
+.barra-superior .opcao-log div{
+    align-items: center;
+    margin: .5em;
+    background: white;
+    overflow: auto;
+    display: inline-block;
+    border-radius: 10%;
 }
 
-.barra-superior .opcao-log button img{
-    position: relative;
-    height: 80%;
+.barra-superior .opcao-log div:hover{
+    background: #777;
 }
 
-.barra-superior nav{
+.barra-superior .opcao-log img{
+    height: 3em;
+}
+
+.menu-principal{
+    background: black;
+}
+
+.menu-principal ul li{
+    display: inline-block;
     
 }
