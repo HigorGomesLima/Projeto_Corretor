@@ -8,19 +8,20 @@ body{
 .barra-superior{
     background: white;
     padding: 5px;
-    width: 100%;
+    width: 99%;
     border: 3px solid black;
 }
 .barra-superior .logo{
     background: #ccc;
     display: inline-block;
-    border-radius: 20%;
+    border-radius: 0%;
     height: 4em;
     width: 9em;
     transition: all .5s;
 }
 .barra-superior .logo:hover{
     background: #eee;
+    border-radius: 50%;
 }
 
 .barra-superior .logo img{
@@ -41,8 +42,9 @@ body{
     display: flex;
     height: 3em;
     display: inline-block;
-    margin-left: 75%;
-    top: 1em;
+    margin-right: 1em;
+    position: relative;
+    float: right;
 }
 
 .barra-superior .opcao-log div{
@@ -55,6 +57,46 @@ body{
     border-radius: 10%;
     padding: .5em;
     transition: all .5s;
+    box-sizing: border-box;
+    position: relative;
+    overflow: inherit;
+}
+
+.opcao-log span{
+    visibility: hidden;
+    position: absolute;
+    top: 3.7em;
+    color: white;
+    background: black;
+    padding: .1em;
+    border-radius: .5em;
+}
+
+.btn-logar .tooltip-logar{
+    left: .3em;
+}
+
+.btn-cadastro .tooltip-cadastro{
+    left: -.6em;
+}
+
+.opcao-log span::after{
+    content: " ";
+    position: absolute;
+    bottom: 100%;  /* At the top of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+}
+
+.btn-logar:hover .tooltip-logar{
+    visibility: visible;
+}
+
+.btn-cadastro:hover .tooltip-cadastro{
+    visibility: visible;
 }
 
 .barra-superior .opcao-log div:hover{
@@ -67,9 +109,11 @@ body{
 
 .menu-principal{
     background: black;
+    padding: .1em;
 }
 
 .menu-principal ul li{
     display: inline-block;
-    
+    color: white;
+    margin: 0 1em;
 }
