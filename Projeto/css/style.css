@@ -1,5 +1,6 @@
 body{
-    font: tahoma,arial, sans-serif;
+    font: tahoma,arial;
+    font-family: sans-serif;
     font-size: 16px;
     margin: 0;
     padding: 0;
@@ -35,7 +36,7 @@ body{
     display: inline-block;
     position: relative;
     bottom: 1.5em;
-    font-size: 18px;
+    font-size: 1.1em;
     font: arial;
 }
 .barra-superior .opcao-log{
@@ -43,7 +44,6 @@ body{
     height: 3em;
     display: inline-block;
     margin-right: 1em;
-    position: relative;
     float: right;
 }
 
@@ -52,7 +52,6 @@ body{
     margin: .5em;
     background: white;
     border: 2px solid black;
-    overflow: auto;
     display: inline-block;
     border-radius: 10%;
     padding: .5em;
@@ -70,6 +69,7 @@ body{
     background: black;
     padding: .1em;
     border-radius: .5em;
+    z-index: 1;
 }
 
 .btn-logar .tooltip-logar{
@@ -83,7 +83,7 @@ body{
 .opcao-log span::after{
     content: " ";
     position: absolute;
-    bottom: 100%;  /* At the top of the tooltip */
+    bottom: 100%;
     left: 50%;
     margin-left: -5px;
     border-width: 5px;
@@ -110,10 +110,39 @@ body{
 .menu-principal{
     background: black;
     padding: .1em;
+    position: relative;
 }
 
-.menu-principal ul li{
+.menu-principal ul .opcao{
     display: inline-block;
     color: white;
-    margin: 0 1em;
+    margin: 0 2em;
+    font-size: 1.04em;
+    position: relative;
+    transition: all .5s;
+}
+
+.menu-principal ul .opcao:hover{
+    color: skyblue;
+    position: relative;
+}
+
+.menu-principal .submenu{
+    position: absolute;
+    color: white;
+    padding: 0px;
+    background: #111;
+    text-align: center;
+    top: 2.3em;
+    width: 6em;
+    max-height: 0em;
+    transition: all 1s;
+    border-radius: 0 0 1em 1em;
+    left: -1.05em;
+}
+
+.menu-principal .submenu li{
+    list-style: none;
+    text-align: center;
+    margin: .7em;
 }

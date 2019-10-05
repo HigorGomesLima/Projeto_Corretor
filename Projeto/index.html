@@ -27,10 +27,27 @@
         </div>
         <nav class="menu-principal">
             <ul>
-                <li>Principal</li>
-                <li>Testes</li>
-                <li>Turmas</li>
-                <li>Relatórios</li>
+                <li class="opcao opcao-principal" onclick="MenuPrincipal('nada')">Principal</li>
+                <li class="opcao opcao-procas" onclick="MenuPrincipal('.submenu-provas')">Provas
+                    <ul class="submenu submenu-provas">
+                        <li class="subopcao-provas">Cadastrar</li>
+                        <li class="subopcao-provas">Consultar</li>
+                        <li class="subopcao-provas">Corrigir</li>
+                    </ul>
+                </li>
+                <li class="opcao opcao-turmas" onclick="MenuPrincipal('.submenu-turmas')">Turmas
+                    <ul class="submenu submenu-turmas">
+                        <li class="subopcao-provas">Cadastrar</li>
+                        <li class="subopcao-provas">Editar</li>
+                    </ul>
+                </li>
+                <li class="opcao opcao-relatorio" onclick="MenuPrincipal('.submenu-relatorio')">Relatórios
+                    <ul class="submenu submenu-relatorio">
+                        <li class="subopcao-provas">Prrova</li>
+                        <li class="subopcao-provas">Turma</li>
+                        <li class="subopcao-provas">Data</li>
+                    </ul>
+                </li>
             </ul>
         </nav>
     </header>
@@ -38,5 +55,6 @@
     </main>
     <footer>
     </footer>
+    <script src="js/main.js"></script>
 </body>
 </html>
