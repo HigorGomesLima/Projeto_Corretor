@@ -4,25 +4,33 @@ body{
     font-size: 16px;
     margin: 0;
     padding: 0;
-    
+    height: 100%;
+    width: 100%;
+    position: relative;
 }
 .barra-superior{
     background: white;
     padding: 5px;
     width: 99%;
     border: 3px solid black;
+    background-image: linear-gradient(to bottom right, #0fd, cornflowerblue);
 }
 .barra-superior .logo{
-    background: #ccc;
     display: inline-block;
-    border-radius: 0%;
+    border-radius: 50%;
     height: 4em;
     width: 9em;
     transition: all .5s;
+    color: white;
 }
 .barra-superior .logo:hover{
     background: #eee;
-    border-radius: 50%;
+    border-radius: 0%;
+    cursor: pointer;
+}
+
+.barra-superior .logo:hover h1{
+    color: black;
 }
 
 .barra-superior .logo img{
@@ -30,7 +38,6 @@ body{
     padding: 5%;
     height: 3em;
 }
-
 .barra-superior .logo h1{
     font-size: 16px;
     display: inline-block;
@@ -66,7 +73,7 @@ body{
     position: absolute;
     top: 3.7em;
     color: white;
-    background: black;
+    background: #777;
     padding: .1em;
     border-radius: .5em;
     z-index: 1;
@@ -108,7 +115,7 @@ body{
 }
 
 .menu-principal{
-    background: black;
+    background-image: linear-gradient(to top right,black,cornflowerblue);
     padding: .1em;
     position: relative;
 }
@@ -125,6 +132,7 @@ body{
 .menu-principal ul .opcao:hover{
     color: skyblue;
     position: relative;
+    cursor: pointer;
 }
 
 .menu-principal .submenu{
