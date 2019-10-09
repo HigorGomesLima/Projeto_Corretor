@@ -52,7 +52,41 @@
         </nav>
     </header>
     <main class="content">
-        
+        <section class="formulario">
+            <article class="article-nova-turma">
+                <h2>Cadastrar Turma</h2>
+                <fieldset class="formulario-ano-letivo">
+                    <label>Ano Letivo<select class="selecao-ano">
+                        <option name="ano" value="2019">2019</option>
+                        </select></label>
+                </fieldset>
+                <fieldset class="forumulario-turma">
+                    <label>Nome<input type="text" class="texto-nome" name="nome">
+                    </label>
+                    <label>Ensino<select class="selecao-ensino">
+                        <option name="ensino" value="ensino-fundamental1">Ensino Fundamental 1</option>
+                        <option name="ensino" value="ensino-fundamental2">Ensino Fundamental 2</option>
+                        <option name="ensino" value="ensino-medio">Ensino Médio</option>
+                        </select></label>
+                    <label>Turno<select class="selecao-turno">
+                        <option name="turno" value="matutino">Matutino</option>
+                        <option name="turno" value="vespertino">Vespertino</option>
+                        <option name="turno" value="noturno">Noturno</option>
+                        </select></label>
+                </fieldset>
+                <fieldset class="formulario-aluno">
+                    <button class="btn-importar-csv">Importar arquivo CSV</button>
+                    <table class="tavela-aluno">
+                        <head></head>
+                        <footer></footer>
+                        <body></body>
+                    </table>
+                    <button class="btn-adicionar-avulso">Adicionar aluno</button>
+                </fieldset>
+            </article>
+        </section>
+        <section class="turmas-cadastradas">
+        </section>
     </main>
     <footer>
     </footer>

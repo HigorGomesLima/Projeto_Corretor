@@ -11,9 +11,8 @@ body{
 .barra-superior{
     background: white;
     padding: 5px;
-    width: 99%;
-    border: 3px solid black;
-    background-image: linear-gradient(to bottom right, #2782f2, #1a7f75);
+    /*--background-image: linear-gradient(to bottom right, #2782f2, #1a7f75);*/
+    background: #2782f2;
 }
 .barra-superior .logo{
     display: inline-block;
@@ -115,7 +114,8 @@ body{
 }
 
 .menu-principal{
-    background-image: linear-gradient(to top right,#185677,#1a7f75);
+    /*background-image: linear-gradient(to top right,#185677,#1a7f75);*/
+    background: #185677;
     padding: .1em;
     position: relative;
 }
