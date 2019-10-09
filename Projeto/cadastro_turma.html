@@ -77,12 +77,38 @@
                 <fieldset class="formulario-aluno">
                     <button class="btn-importar-csv">Importar arquivo CSV</button>
                     <table class="tavela-aluno">
-                        <head></head>
-                        <footer></footer>
-                        <body></body>
+                        <thead>
+                            <tr>
+                                <th>Matrícula</th><th>Nome</th><th>Editar</th><th>Excluir</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <td colspan="4">Total de alunos <span class="numero-total">0</span></td>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr class="dados-aluno">
+                                <td>
+                                    <input type="number" name="matricula">
+                                </td>
+                                <td>
+                                    <input type="text" name="nome-aluno">
+                                </td>
+                                <td>
+                                    <div class="btn-editar"><img src="imagem/user-edit-solid.svg"></div>
+                                </td>
+                                <td>
+                                    <div class="btn-excluir"><img src="imagem/user-minus-solid.svg"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4"><button class="btn-adicionar-avulso">Adicionar aluno</button></td>
+                            </tr>
+                        </tbody>
                     </table>
-                    <button class="btn-adicionar-avulso">Adicionar aluno</button>
                 </fieldset>
+                <button class="btn-cadastrar">Cadastrar</button>
             </article>
         </section>
         <section class="turmas-cadastradas">
