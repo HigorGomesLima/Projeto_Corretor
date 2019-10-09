@@ -67,6 +67,7 @@
                         <option name="ensino" value="ensino-fundamental1">Ensino Fundamental 1</option>
                         <option name="ensino" value="ensino-fundamental2">Ensino Fundamental 2</option>
                         <option name="ensino" value="ensino-medio">Ensino Médio</option>
+                        <option name="ensino" value="ensino-medio">Novo Ensino Médio</option>
                         </select></label>
                     <label>Turno<select class="selecao-turno">
                         <option name="turno" value="matutino">Matutino</option>
@@ -76,7 +77,7 @@
                 </fieldset>
                 <fieldset class="formulario-aluno">
                     <button class="btn-importar-csv">Importar arquivo CSV</button>
-                    <table class="tavela-aluno">
+                    <table class="tabela-aluno">
                         <thead>
                             <tr>
                                 <th>Matrícula</th><th>Nome</th><th>Editar</th><th>Excluir</th>
@@ -99,7 +100,7 @@
                                     <div class="btn-editar"><img src="imagem/user-edit-solid.svg"></div>
                                 </td>
                                 <td>
-                                    <div class="btn-excluir"><img src="imagem/user-minus-solid.svg"></div>
+                                    <div class="btn-excluir" onclick="removerCampo(this)"><img src="imagem/user-minus-solid.svg"></div>
                                 </td>
                             </tr>
                             <tr>
@@ -117,5 +118,7 @@
     <footer>
     </footer>
     <script src="js/main.js"></script>
+    <script src="js/cadastro-turma.js"></script>
+    <script src="js/init.js"></script>
 </body>
 </html>
