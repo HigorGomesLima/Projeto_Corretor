@@ -8,6 +8,7 @@
 	<meta name="keywords" content="html5, tecnologia">
     
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery-3.4.1.js"></script>
 </head>
 <body>
     <header>
@@ -76,7 +77,8 @@
                         </select></label>
                 </fieldset>
                 <fieldset class="formulario-aluno">
-                    <button class="btn-importar-csv">Importar arquivo CSV</button>
+                    <input type="file" class="selecionar-csv" name="arquivo-csv" accept=".csv">
+                    <input type="submit" class="btn-importar-csv">
                     <table class="tabela-aluno">
                         <thead>
                             <tr>
@@ -100,7 +102,7 @@
                                     <div class="btn-editar"><img src="imagem/user-edit-solid.svg"></div>
                                 </td>
                                 <td>
-                                    <div class="btn-excluir" onclick="removerCampo(this)"><img src="imagem/user-minus-solid.svg"></div>
+                                    <div class="btn-excluir"><img src="imagem/user-minus-solid.svg"></div>
                                 </td>
                             </tr>
                             <tr>
