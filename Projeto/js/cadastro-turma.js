@@ -9,7 +9,9 @@ function CriaTurma(){
     function adicionarCampo(){
         var nova_linha = _tabela_aluno.insertRow(-1);
         nova_linha.insertCell(0).innerHTML = _campo_novo.querySelector('input[name="matricula"]').value;
+        _campo_novo.querySelector('input[name="matricula"]').value = '';
         nova_linha.insertCell(1).innerHTML = _campo_novo.querySelector('input[name="nome-aluno"]').value;
+        _campo_novo.querySelector('input[name="nome-aluno"]').value = '';
         nova_linha.insertCell(2).innerHTML = '<div class="btn-editar"><img src="imagem/user-edit-solid.svg"></div>';
         nova_linha.insertCell(3).innerHTML = '<div class="btn-excluir"><img src="imagem/user-minus-solid.svg"></div>';
         console.log(_campo_novo);
@@ -63,8 +65,8 @@ function criarTabelaAlunos(lista){
         var nova_linha = _tabela_aluno.insertRow(-1);
         nova_linha.insertCell(0).innerHTML = '<td>'+aluno.matricula+"</td>"
         nova_linha.insertCell(1).innerHTML = '<td>'+aluno.nome+"</td>"
-        nova_linha.insertCell(2).innerHTML = '<div class="btn-editar"><img src="imagem/user-edit-solid.svg"></div>';
-        nova_linha.insertCell(3).innerHTML = '<div class="btn-excluir"><img src="imagem/user-minus-solid.svg"></div>';
+        nova_linha.insertCell(2).innerHTML = '<td><div class="btn-editar"><img src="imagem/user-edit-solid.svg"></div></td>';
+        nova_linha.insertCell(3).innerHTML = '<td><div class="btn-excluir"><img src="imagem/user-minus-solid.svg"></div></td>';
         $(".btn-excluir").bind("click",removerCampo);
     });
 }
