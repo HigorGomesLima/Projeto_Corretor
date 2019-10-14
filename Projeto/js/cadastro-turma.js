@@ -1,23 +1,24 @@
-function CriaTurma(){
+(function CriaTurma(){
     var _tabela_aluno = document.querySelector(".formulario-aluno .tabela-aluno tbody");
     var _btn_addaluno = document.querySelector(".btn-adicionar-avulso");
     var _btn_enviar_csv = document.querySelector(".btn-importar-csv");
-    var _campo_novo = document.querySelector(".dados-aluno");
-    _alunos = _tabela_aluno.length;
     _btn_addaluno.addEventListener('click', adicionarCampo);
     _btn_enviar_csv.addEventListener('click', lerArquivoCSV);
-    function adicionarCampo(){
-        var nova_linha = _tabela_aluno.insertRow(-1);
-        nova_linha.insertCell(0).innerHTML = _campo_novo.querySelector('input[name="matricula"]').value;
-        _campo_novo.querySelector('input[name="matricula"]').value = '';
-        nova_linha.insertCell(1).innerHTML = _campo_novo.querySelector('input[name="nome-aluno"]').value;
-        _campo_novo.querySelector('input[name="nome-aluno"]').value = '';
-        nova_linha.insertCell(2).innerHTML = '<div class="btn-editar"><img src="imagem/user-edit-solid.svg"></div>';
-        nova_linha.insertCell(3).innerHTML = '<div class="btn-excluir"><img src="imagem/user-minus-solid.svg"></div>';
-        $(".btn-excluir").bind("click",removerCampo);
-        $(".btn-editar").bind("click",editCampo);
-        document.querySelector(".numero-total").innerHTML = document.querySelectorAll('.formulario-aluno .tabela-aluno tbody tr').length-1;
-    }
+    $(".btn-cadastrar").bind('click',salvarTurma);
+})();
+
+function adicionarCampo(){
+    var _campo_novo = document.querySelector(".dados-aluno");
+    var nova_linha = _tabela_aluno.insertRow(-1);
+    nova_linha.insertCell(0).innerHTML = _campo_novo.querySelector('input[name="matricula"]').value;
+    _campo_novo.querySelector('input[name="matricula"]').value = '';
+    nova_linha.insertCell(1).innerHTML = _campo_novo.querySelector('input[name="nome-aluno"]').value;
+    _campo_novo.querySelector('input[name="nome-aluno"]').value = '';
+    nova_linha.insertCell(2).innerHTML = '<div class="btn-editar"><img src="imagem/user-edit-solid.svg"></div>';
+    nova_linha.insertCell(3).innerHTML = '<div class="btn-excluir"><img src="imagem/user-minus-solid.svg"></div>';
+    $(".btn-excluir").bind("click",removerCampo);
+    $(".btn-editar").bind("click",editCampo);
+    document.querySelector(".numero-total").innerHTML = document.querySelectorAll('.formulario-aluno .tabela-aluno tbody tr').length-1;
 }
 function removerCampo(){
     var par = $(this).parent().parent();
@@ -95,4 +96,14 @@ function criarTabelaAlunos(lista){
         $(".btn-editar").bind("click",editCampo);
     });
     document.querySelector(".numero-total").innerHTML = lista.length;
+}
+
+function salvarTurma(){
+    var ano = $(".formulario-ano-letivo select option[name='ano']").val();
+    var nome = $(".forumulario-turma input[name='nome']").val();
+    var ensino = $(".forumulario-turma select option[name='ensino']").val();
+    var turno = $(".forumulario-turma select option[name='turno']").val();
+    if(nome != ''){
+        
+    }
 }

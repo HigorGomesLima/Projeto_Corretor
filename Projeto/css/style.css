@@ -45,6 +45,14 @@ body{
     font-size: 1.1em;
     font: arial;
 }
+
+.info-log{
+    display: inline-block;
+    position: absolute;
+    right: 10%;
+    top: 25%;
+    color: white;
+}
 .barra-superior .opcao-log{
     display: flex;
     height: 3em;
@@ -126,9 +134,9 @@ body{
     opacity: 0.5;
 }
 
-.login{
+.login,.logout{
     padding: 1em;
-    background-color: skyblue;
+    background-color: #185677;
     border: 1px solid black;
     border-radius: 15%;
     position: absolute;
@@ -147,10 +155,16 @@ body{
     height: 1.5em;
     margin-top: 2px;
 }
-.login button{
-    margin: 10px 0px 0px 30px;
+
+.logout a{
+    display: block;
+    font-weight: bold;
+    text-align: center;
+}
+.login button,.logout button{
+    margin: 10px 0px 0px;
     padding: .5em;
-    background-color: #4CAF50;
+    background-color: #1a7f75;
     color: white;
     border-radius: 10%;
 }

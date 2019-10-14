@@ -1,33 +1,76 @@
 var _menu_aberto = 'nada';
 var _login_aberto = false;
 var _usuario = 'visitante';
+var _logado = false;
 
 (function main(){
+    const firebaseConfig = {
+    apiKey: "AIzaSyCI6LDePJLmWcEyP6u06cjtbhsCEY7_CFc",
+    authDomain: "bancodadossimples.firebaseapp.com",
+    databaseURL: "https://bancodadossimples.firebaseio.com",
+    projectId: "bancodadossimples",
+    storageBucket: "bancodadossimples.appspot.com",
+    messagingSenderId: "489659906933",
+    appId: "1:489659906933:web:6bf4a41eda7eecb999f13c",
+    measurementId: "G-B3ZCL5PWNZ"
+  };
+    firebase.initializeApp(firebaseConfig);
     firebase.auth().onAuthStateChanged(function (user) {
         if(user){
             var user = getUser(user.email);
             user.then(function(d){
                 _usuario = d.tipo;
+                $(".btn-logar img").attr("src","imagem/logout.svg");
+                $(".info-log").html("<a>"+d.nome+"</a>");
+                $(".tooltip-logar").text("Sair");
+                _logado = true;
                 definirMenu();
+                $(".login,.fundo").fadeOut('slow');
             });
         }else{
-            console.log("offline");
+            _logado = false;
+            _usuario = 'visitante';
+            $(".btn-logar img").attr("src","imagem/login.svg");
+            $(".info-log").html("<a>Bem vindo</a>");
+            $(".tooltip-logar").text("Entrar");
+            definirMenu();
         }
     });
 })();
 
 $(".btn-logar").click(function(){
-    if(_login_aberto){
-        $(".login,.fundo").fadeOut('slow');
-        _login_aberto = false;
+    if(!_logado){
+        if(_login_aberto){
+            $(".login,.fundo").fadeOut('slow');
+            _login_aberto = false;
+        }else{
+            $(".login,.fundo").fadeIn('slow');
+            _login_aberto = true;
+        }
     }else{
-        $(".login,.fundo").fadeIn('slow');
-        _login_aberto = true;
+        if(_login_aberto){
+            $(".logout,.fundo").fadeOut('slow');
+            _login_aberto = false;
+        }else{
+            $(".logout,.fundo").fadeIn('slow');
+            _login_aberto = true;
+        }
     }
 });
 $(".btn-cancelar").click(function (){
-    $(".login,.fundo").fadeOut('slow');
+    $(".login,.fundo,.logout").fadeOut('slow');
     _login_aberto = false;
+});
+
+$(".btn-confirmar").click(function (){
+    firebase.auth().signOut().then(function (){
+        $(".logout,.fundo").fadeOut('slow');
+        _login_aberto = false;
+        _usuario = 'visitante';
+    }).catch(function (erro){
+        $(".logout,.fundo").fadeOut('slow');
+        alert("Erro "+erro);
+    });
 });
 $(".opcao").click(function (){
     $(".submenu").hide();
@@ -44,10 +87,11 @@ $(".opcao").click(function (){
 $(".btn-entrar").click(function (){
     var email = $(".login input[name='email']").val();
     var password = $(".login input[name='password']").val();
-    firebase.auth().signInWithEmailAndPassword(email, password).catch(function(erro){
-        console.log(erro);
-    });
-    $(".login,.fundo").fadeOut('slow');
+    firebase.auth().signInWithEmailAndPassword(email, password).then(function (){
+        $(".login").fadeOut('fast');
+    }).catch(function (erro){
+        alert("Usuário ou senha incorreta");
+    })
     _login_aberto = false;
 });
 
