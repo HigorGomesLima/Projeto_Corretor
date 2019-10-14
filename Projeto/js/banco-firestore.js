@@ -13,7 +13,6 @@
               })
           })
       }
-      console.log(_lista);
   }
 
   function setTurma(dados){
@@ -29,3 +28,14 @@
         });
     }
   }
+
+function getUser(email){
+    var _db = firebase.firestore();
+    if(email != ''){
+        var _user = _db.collection('user').doc(email);
+        return _user.get().then(function(doc){
+            return { nome: doc.data().nome,
+                    tipo: doc.data().tipo};
+        })
+    }
+}

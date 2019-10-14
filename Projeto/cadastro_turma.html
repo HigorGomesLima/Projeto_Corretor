@@ -6,7 +6,6 @@
 	<meta name="author" content="Higor">
 	<meta name="description" content="inicio de estudo">
 	<meta name="keywords" content="html5, tecnologia">
-    
     <link rel="stylesheet" href="css/style.css">
     <script src="js/jquery-3.4.1.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
@@ -55,7 +54,7 @@
             </ul>
         </nav>
     </header>
-    <main class="content">
+    <main class="content content-cadastro-turma">
         <section class="formulario">
             <article class="article-nova-turma">
                 <h2>Cadastrar Turma</h2>
@@ -65,8 +64,8 @@
                         </select></label>
                 </fieldset>
                 <fieldset class="forumulario-turma">
-                    <label>Nome<input type="text" class="texto-nome" name="nome">
-                    </label>
+                    <label class="texto-nome">Nome<input type="text" class="texto-nome" name="nome">
+                    </label><br>
                     <label>Ensino<select class="selecao-ensino">
                         <option name="ensino" value="ensino-fundamental1">Ensino Fundamental 1</option>
                         <option name="ensino" value="ensino-fundamental2">Ensino Fundamental 2</option>
@@ -96,10 +95,10 @@
                         <tbody>
                             <tr class="dados-aluno">
                                 <td>
-                                    <input type="number" name="matricula">
+                                    <input type="number" name="matricula"/>
                                 </td>
                                 <td>
-                                    <input type="text" name="nome-aluno">
+                                    <input type="text" name="nome-aluno"/>
                                 </td>
                                 <td colspan="2"><div class="btn-adicionar-avulso"><img src="imagem/user-plus-solid.svg"></div></td>
                             </tr>
@@ -114,9 +113,9 @@
     </main>
     <footer>
     </footer>
+    <script src="js/init.js"></script>
     <script src="js/main.js"></script>
     <script src="js/cadastro-turma.js"></script>
-    <script src="js/init.js"></script>
     <script src="js/banco-firestore.js"></script>
 </body>
 </html>

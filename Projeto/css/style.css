@@ -53,7 +53,7 @@ body{
     float: right;
 }
 
-.barra-superior .opcao-log div{
+.barra-superior .opcao-log .btn-logar{
     align-items: center;
     margin: .5em;
     background: white;
@@ -65,6 +65,10 @@ body{
     box-sizing: border-box;
     position: relative;
     overflow: inherit;
+}
+
+.barra-superior .btn-cadastro{
+    display: none;
 }
 
 .opcao-log span{
@@ -85,7 +89,6 @@ body{
 .btn-cadastro .tooltip-cadastro{
     left: -.6em;
 }
-
 .opcao-log span::after{
     content: " ";
     position: absolute;
@@ -111,6 +114,45 @@ body{
 
 .barra-superior .opcao-log img{
     height: 2em;
+}
+
+.fundo{
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: absolute;
+    z-index: 100;
+    background: white;
+    opacity: 0.5;
+}
+
+.login{
+    padding: 1em;
+    background-color: skyblue;
+    border: 1px solid black;
+    border-radius: 15%;
+    position: absolute;
+    left: 40%;
+    top: 200%;
+    display: none;
+    z-index: 101;
+}
+
+.login label{
+    display: block;
+    font-weight: bold;
+}
+.login input{
+    width: 100%;
+    height: 1.5em;
+    margin-top: 2px;
+}
+.login button{
+    margin: 10px 0px 0px 30px;
+    padding: .5em;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 10%;
 }
 
 .menu-principal{
@@ -143,8 +185,6 @@ body{
     text-align: center;
     top: 2.3em;
     width: 6em;
-    max-height: 0em;
-    transition: all 1s;
     border-radius: 0 0 1em 1em;
     left: -1.05em;
 }
@@ -153,4 +193,27 @@ body{
     list-style: none;
     text-align: center;
     margin: .7em;
+}
+
+/* Cadastro turma */
+.content-cadastro-turma{
+    font-family: Optima, sans-serif;
+}
+.content-cadastro-turma h2{
+    margin: 1em;
+    color: #000324;
+    font-family: Optima, sans-serif;
+    text-align: center;
+}
+
+.content-cadastro-turma label{
+    margin: 1em;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.content-cadastro-turma select{
+    margin: 0em 1em;
+    font-size: 0.9em;
+    border: 1px solid blue;
 }

@@ -1,5 +1,5 @@
 (function init(){
-    var _cadastro = new CriaTurma();
+    //var _cadastro = new CriaTurma();
     const firebaseConfig = {
     apiKey: "AIzaSyCI6LDePJLmWcEyP6u06cjtbhsCEY7_CFc",
     authDomain: "bancodadossimples.firebaseapp.com",
@@ -11,4 +11,11 @@
     measurementId: "G-B3ZCL5PWNZ"
   };
     firebase.initializeApp(firebaseConfig);
+    /*firebase.auth().onAuthStateChanged(function (user) {
+        if(user){
+            console.log("logado");
+        }else{
+            console.log("offiline");
+        }
+    })*/
 })()

@@ -6,10 +6,16 @@
 	<meta name="author" content="Higor">
 	<meta name="description" content="inicio de estudo">
 	<meta name="keywords" content="html5, tecnologia">
-    
+    <script src="js/jquery-3.4.1.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-auth.js"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <div class="fundo">
+    </div>
     <header>
         <div class="barra-superior">
             <div class="logo">
@@ -27,21 +33,21 @@
         </div>
         <nav class="menu-principal">
             <ul>
-                <li class="opcao opcao-principal" onclick="MenuPrincipal('nada')">Principal</li>
-                <li class="opcao opcao-provas" onclick="MenuPrincipal('.submenu-provas','.opcao-provas')">Provas
+                <li class="opcao opcao-principal">Principal</li>
+                <li class="opcao opcao-provas">Provas
                     <ul class="submenu submenu-provas">
                         <li class="subopcao-provas">Cadastrar</li>
                         <li class="subopcao-provas">Consultar</li>
                         <li class="subopcao-provas">Corrigir</li>
                     </ul>
                 </li>
-                <li class="opcao opcao-turmas" onclick="MenuPrincipal('.submenu-turmas','.opcao-turmas')">Turmas
+                <li class="opcao opcao-turmas">Turmas
                     <ul class="submenu submenu-turmas">
                         <li class="subopcao-provas">Cadastrar</li>
                         <li class="subopcao-provas">Editar</li>
                     </ul>
                 </li>
-                <li class="opcao opcao-relatorio" onclick="MenuPrincipal('.submenu-relatorio','.opcao-relatorio')">Relatórios
+                <li class="opcao opcao-relatorio">Relatórios
                     <ul class="submenu submenu-relatorio">
                         <li class="subopcao-provas">Prova</li>
                         <li class="subopcao-provas">Turma</li>
@@ -50,11 +56,24 @@
                 </li>
             </ul>
         </nav>
+        <form class="login">
+            <label>E-mail<input type="email" name="email"></label>
+            <label>Senha<input type="password" name="password"></label>
+            <button type="button" class="btn-entrar">Entrar</button>
+            <button type="button" class="btn-cancelar">Cancelar</button>
+        </form>
     </header>
     <main class="content">
+        <div class="fundo">
+        </div>
     </main>
     <footer>
+        <div class="fundo">
+        </div>
     </footer>
+    <script src="js/init.js"></script>
+    <script src="js/banco-firestore.js"></script>
+    <script src="js/cadastro-turma.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

@@ -14,13 +14,38 @@ function CriaTurma(){
         _campo_novo.querySelector('input[name="nome-aluno"]').value = '';
         nova_linha.insertCell(2).innerHTML = '<div class="btn-editar"><img src="imagem/user-edit-solid.svg"></div>';
         nova_linha.insertCell(3).innerHTML = '<div class="btn-excluir"><img src="imagem/user-minus-solid.svg"></div>';
-        console.log(_campo_novo);
         $(".btn-excluir").bind("click",removerCampo);
+        $(".btn-editar").bind("click",editCampo);
+        document.querySelector(".numero-total").innerHTML = document.querySelectorAll('.formulario-aluno .tabela-aluno tbody tr').length-1;
     }
 }
 function removerCampo(){
     var par = $(this).parent().parent();
     par.remove();
+    document.querySelector(".numero-total").innerHTML = document.querySelectorAll('.formulario-aluno .tabela-aluno tbody tr').length-1;
+}
+function editCampo(){
+    var par = $(this).parent().parent();
+    var matricula = par.children("td:nth-child(1)");
+    var nome = par.children("td:nth-child(2)");
+    var btn = par.children("td:nth-child(3)");
+    
+    matricula.html("<input type='number' name='matricula' value='"+matricula.html()+"'/>");
+    nome.html("<input type='text' name='matricula' value='"+nome.html()+"'/>");
+    btn.html("<div class='btn-salvar'><img src='imagem/user-check-solid.svg'></div>");
+    $(".btn-salvar").bind("click",saveCampo);
+}
+
+function saveCampo(){
+    var par =$(this).parent().parent();
+    var matricula = par.children("td:nth-child(1)");
+    var nome = par.children("td:nth-child(2)");
+    var btn = par.children("td:nth-child(3)");
+    matricula.html(matricula.children("input").val());
+    
+    nome.html(nome.children("input").val());
+    btn.html("<div class='btn-editar'><img src='imagem/user-edit-solid.svg'></div>");
+    $(".btn-editar").bind("click",editCampo);
 }
 function lerArquivoCSV(){
     var _arquivo = document.querySelector(".selecionar-csv");
@@ -45,7 +70,6 @@ function loadCSV(event){
     });
     for(var i = inicio;dados;i++){
         var linha = lines[i].split(';');
-        console.log(linha);
         if(linha.length < 3 || linha[0] == 'Emissão:') dados = false
         else {
             linha = linha.filter(e => e !== '');
@@ -68,5 +92,7 @@ function criarTabelaAlunos(lista){
         nova_linha.insertCell(2).innerHTML = '<td><div class="btn-editar"><img src="imagem/user-edit-solid.svg"></div></td>';
         nova_linha.insertCell(3).innerHTML = '<td><div class="btn-excluir"><img src="imagem/user-minus-solid.svg"></div></td>';
         $(".btn-excluir").bind("click",removerCampo);
+        $(".btn-editar").bind("click",editCampo);
     });
+    document.querySelector(".numero-total").innerHTML = lista.length;
 }
