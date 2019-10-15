@@ -1,24 +1,28 @@
 (function CriaTurma(){
-    var _tabela_aluno = document.querySelector(".formulario-aluno .tabela-aluno tbody");
-    var _btn_addaluno = document.querySelector(".btn-adicionar-avulso");
-    var _btn_enviar_csv = document.querySelector(".btn-importar-csv");
-    _btn_addaluno.addEventListener('click', adicionarCampo);
-    _btn_enviar_csv.addEventListener('click', lerArquivoCSV);
+    $(".btn-adicionar-avulso").bind('click',adicionarCampo);
     $(".btn-cadastrar").bind('click',salvarTurma);
+    $(".btn-importar-csv").bind('click',lerArquivoCSV);
 })();
 
 function adicionarCampo(){
+    var _tabela_aluno = document.querySelector(".formulario-aluno .tabela-aluno tbody");
     var _campo_novo = document.querySelector(".dados-aluno");
     var nova_linha = _tabela_aluno.insertRow(-1);
-    nova_linha.insertCell(0).innerHTML = _campo_novo.querySelector('input[name="matricula"]').value;
-    _campo_novo.querySelector('input[name="matricula"]').value = '';
-    nova_linha.insertCell(1).innerHTML = _campo_novo.querySelector('input[name="nome-aluno"]').value;
-    _campo_novo.querySelector('input[name="nome-aluno"]').value = '';
-    nova_linha.insertCell(2).innerHTML = '<div class="btn-editar"><img src="imagem/user-edit-solid.svg"></div>';
-    nova_linha.insertCell(3).innerHTML = '<div class="btn-excluir"><img src="imagem/user-minus-solid.svg"></div>';
-    $(".btn-excluir").bind("click",removerCampo);
-    $(".btn-editar").bind("click",editCampo);
-    document.querySelector(".numero-total").innerHTML = document.querySelectorAll('.formulario-aluno .tabela-aluno tbody tr').length-1;
+    var matricula = _campo_novo.querySelector('input[name="matricula"]').value;
+    var nome = _campo_novo.querySelector('input[name="nome-aluno"]').value;
+    if(matricula != '' && nome != ''){
+        nova_linha.insertCell(0).innerHTML = _campo_novo.querySelector('input[name="matricula"]').value;
+        _campo_novo.querySelector('input[name="matricula"]').value = '';
+        nova_linha.insertCell(1).innerHTML = _campo_novo.querySelector('input[name="nome-aluno"]').value;
+        _campo_novo.querySelector('input[name="nome-aluno"]').value = '';
+        nova_linha.insertCell(2).innerHTML = '<div class="btn-editar"><img src="imagem/user-edit-solid.svg"></div>';
+        nova_linha.insertCell(3).innerHTML = '<div class="btn-excluir"><img src="imagem/user-minus-solid.svg"></div>';
+        $(".btn-excluir").bind("click",removerCampo);
+        $(".btn-editar").bind("click",editCampo);
+        document.querySelector(".numero-total").innerHTML = document.querySelectorAll('.formulario-aluno .tabela-aluno tbody tr').length-1;
+    }else{
+        alert("Digite a matrícula e o nome");
+    }
 }
 function removerCampo(){
     var par = $(this).parent().parent();
@@ -32,7 +36,7 @@ function editCampo(){
     var btn = par.children("td:nth-child(3)");
     
     matricula.html("<input type='number' name='matricula' value='"+matricula.html()+"'/>");
-    nome.html("<input type='text' name='matricula' value='"+nome.html()+"'/>");
+    nome.html("<input type='text' name='nome-aluno' value='"+nome.html()+"'/>");
     btn.html("<div class='btn-salvar'><img src='imagem/user-check-solid.svg'></div>");
     $(".btn-salvar").bind("click",saveCampo);
 }
@@ -49,7 +53,7 @@ function saveCampo(){
     $(".btn-editar").bind("click",editCampo);
 }
 function lerArquivoCSV(){
-    var _arquivo = document.querySelector(".selecionar-csv");
+    var _arquivo = document.querySelector(".selecionar-csv input");
     var reader = new FileReader();
     reader.onload = loadCSV;
     reader.readAsText(_arquivo.files[0],'ISO-8859-1');

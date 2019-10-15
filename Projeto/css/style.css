@@ -48,9 +48,6 @@ body{
 
 .info-log{
     display: inline-block;
-    position: absolute;
-    right: 10%;
-    top: 25%;
     color: white;
 }
 .barra-superior .opcao-log{
@@ -220,14 +217,152 @@ body{
     text-align: center;
 }
 
+.content-cadastro-turma section{
+    background: white;
+    width: 98%;
+    margin: auto;
+}
+
+.content-cadastro-turma fieldset{
+    background: white;
+    padding: 1em 0em;
+}
+
 .content-cadastro-turma label{
     margin: 1em;
-    font-weight: bold;
-    font-size: 1.1em;
+    font-weight: 500;
+    font-size: 1em;
 }
 
 .content-cadastro-turma select{
     margin: 0em 1em;
     font-size: 0.9em;
-    border: 1px solid blue;
+    padding: .5em;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background: #8db9e7;
+    color: white;
+}
+
+.content-cadastro-turma select:hover{
+    background: #6b97c5;
+}
+
+.content-cadastro-turma input[name='nome']{
+    padding: .3em;
+    margin: 1em 0em 1em 1.7em;
+    width: 20em;
+    font-size: .8em;
+    border: 2px solid #ccc;
+    font-family: Optima, sans-serif;
+    border-radius: 5px;
+}
+
+.formulario-aluno .selecionar-csv{
+    background: #8db9e7;
+    padding: .5em;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 2px solid #ccc;
+    color: white;
+}
+
+.formulario-aluno .selecionar-csv:hover{
+    background: #6b97c5;
+}
+
+.formulario-aluno .btn-importar-csv{
+    padding: .5em;
+    background: #8db9e7;
+    border-radius: 5px;
+    color: white;
+}
+
+.formulario-aluno .btn-importar-csv:hover{
+    background: #6b97c5;
+}
+
+.tabela-aluno{
+    background: white;
+    margin: 1em 1em;
+    width: 70%;
+}
+.tabela-aluno{
+    border-collapse:collapse;
+}
+
+.tabela-aluno thead tr:nth-child(1) th:nth-child(1){
+    background: white;
+    color: black;
+    text-align: center;
+    border: 1px solid white;
+    font-size: 1.1em;
+    padding: .3em;
+}
+
+.tabela-aluno tr:nth-child(even) {
+    background-color: #eef;
+}
+
+.tabela-aluno th,.tabela-aluno tfoot tr{
+    background: #1a7f75;
+    color: white;
+}
+
+.tabela-aluno td,th{
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 1em;
+    align-content: center;
+}
+
+.tabela-aluno td{
+    text-align: center;
+    font-size: .9em;
+}
+
+.tabela-aluno td img{
+    width: 2.5em;
+}
+
+.tabela-aluno td img:hover{
+    background: #8db9e7;
+    border-radius: 5px;
+}
+
+.tabela-aluno input[name='nome-aluno']{
+    width: 70%;
+    padding: .2em;
+    border-radius: 5px;
+    border: 1px solid #999;
+    text-align: center;
+}
+
+.tabela-aluno input[name='matricula']{
+    width: 50%;
+    padding: .2em;
+    border-radius: 5px;
+    border: 1px solid #999;
+    text-align: center;
+}
+
+.tabela-aluno tfoot td{
+    font-weight: bold;
+    font-size: .9em;
+}
+
+.btn-cadastrar{
+    margin: 1em 45% 0em;
+    padding: .8em;
+    border-radius: 5px;
+    background: #185677;
+    color: white;
+    font-weight: bold;
+    border: 2px solid #ccc;
+    font-size: .9em;
+    transition: all .5s;
+}
+
+.btn-cadastrar:hover{
+    background: #063455
 }

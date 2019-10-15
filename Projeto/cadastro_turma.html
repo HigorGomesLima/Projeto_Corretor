@@ -22,10 +22,10 @@
                 <img src="imagem/check-logo.svg" alt="logo">
                 <h1>Corretor</h1>
             </div>
-            <div class="info-log">
-                <a>Bem-vindo</a>
-            </div>
             <div class="opcao-log">
+                <div class="info-log">
+                    <a>Bem-vindo</a>
+                </div>
                 <div class="btn-logar" href="#"><a href="#"><img src="imagem/login.svg" alt="logar"></a>
                     <span class="tooltip-logar">Entrar</span>
                 </div>
@@ -98,17 +98,20 @@
                         </select></label>
                 </fieldset>
                 <fieldset class="formulario-aluno">
-                    <input type="file" class="selecionar-csv" name="arquivo-csv" accept=".csv">
-                    <input type="submit" class="btn-importar-csv">
+                    <label class="selecionar-csv"><input type="file" name="arquivo-csv" accept=".csv"></label>
+                    <button type="button" class="btn-importar-csv">Enviar</button>
                     <table class="tabela-aluno">
                         <thead>
                             <tr>
-                                <th>Matrícula</th><th>Nome</th><th>Editar</th><th>Excluir</th>
+                                <th colspan="4">Estudantes</th>
+                            </tr>
+                            <tr>
+                                <th>Matrícula</th><th>Nome</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                                <td colspan="4">Total de alunos <span class="numero-total">0</span></td>
+                                <td colspan="4">Total de alunos: <span class="numero-total">0</span></td>
                             </tr>
                         </tfoot>
                         <tbody>
@@ -123,8 +126,8 @@
                             </tr>
                         </tbody>
                     </table>
+                    <button class="btn-cadastrar">Cadastrar</button>
                 </fieldset>
-                <button class="btn-cadastrar">Cadastrar</button>
             </article>
         </section>
         <section class="turmas-cadastradas">
