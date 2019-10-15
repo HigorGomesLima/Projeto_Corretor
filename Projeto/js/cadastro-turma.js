@@ -1,7 +1,8 @@
+var _total_alunos = 0;
 (function CriaTurma(){
     $(".btn-adicionar-avulso").bind('click',adicionarCampo);
-    $(".btn-cadastrar").bind('click',salvarTurma);
     $(".btn-importar-csv").bind('click',lerArquivoCSV);
+    $(".btn-cadastrar").bind('click',cadastrarTurma);
 })();
 
 function adicionarCampo(){
@@ -11,6 +12,7 @@ function adicionarCampo(){
     var matricula = _campo_novo.querySelector('input[name="matricula"]').value;
     var nome = _campo_novo.querySelector('input[name="nome-aluno"]').value;
     if(matricula != '' && nome != ''){
+        _total_alunos = $(".formulario-aluno .tabela-aluno tbody tr").length -1;
         nova_linha.insertCell(0).innerHTML = _campo_novo.querySelector('input[name="matricula"]').value;
         _campo_novo.querySelector('input[name="matricula"]').value = '';
         nova_linha.insertCell(1).innerHTML = _campo_novo.querySelector('input[name="nome-aluno"]').value;
@@ -19,7 +21,7 @@ function adicionarCampo(){
         nova_linha.insertCell(3).innerHTML = '<div class="btn-excluir"><img src="imagem/user-minus-solid.svg"></div>';
         $(".btn-excluir").bind("click",removerCampo);
         $(".btn-editar").bind("click",editCampo);
-        document.querySelector(".numero-total").innerHTML = document.querySelectorAll('.formulario-aluno .tabela-aluno tbody tr').length-1;
+        document.querySelector(".numero-total").innerHTML = _total_alunos;
     }else{
         alert("Digite a matrícula e o nome");
     }
@@ -27,7 +29,8 @@ function adicionarCampo(){
 function removerCampo(){
     var par = $(this).parent().parent();
     par.remove();
-    document.querySelector(".numero-total").innerHTML = document.querySelectorAll('.formulario-aluno .tabela-aluno tbody tr').length-1;
+    _total_alunos = $(".formulario-aluno .tabela-aluno tbody tr").length-1;
+    document.querySelector(".numero-total").innerHTML = _total_alunos;
 }
 function editCampo(){
     var par = $(this).parent().parent();
@@ -57,6 +60,7 @@ function lerArquivoCSV(){
     var reader = new FileReader();
     reader.onload = loadCSV;
     reader.readAsText(_arquivo.files[0],'ISO-8859-1');
+    _arquivo.value = '';
 }
 
 function loadCSV(event){
@@ -99,15 +103,36 @@ function criarTabelaAlunos(lista){
         $(".btn-excluir").bind("click",removerCampo);
         $(".btn-editar").bind("click",editCampo);
     });
-    document.querySelector(".numero-total").innerHTML = lista.length;
+    _total_alunos = $(".formulario-aluno .tabela-aluno tbody tr").length-1;
+    document.querySelector(".numero-total").innerHTML = _total_alunos;
 }
 
-function salvarTurma(){
-    var ano = $(".formulario-ano-letivo select option[name='ano']").val();
+function cadastrarTurma(){
+    var ano = $(".formulario-ano-letivo .selecao-ano").val();
     var nome = $(".forumulario-turma input[name='nome']").val();
-    var ensino = $(".forumulario-turma select option[name='ensino']").val();
-    var turno = $(".forumulario-turma select option[name='turno']").val();
+    var ensino = $(".forumulario-turma .selecao-ensino").val();
+    var turno = $(".forumulario-turma .selecao-turno").val();
     if(nome != ''){
-        
+        var alunos = [];
+        var lista_alunos = document.querySelectorAll(".formulario-aluno .tabela-aluno tbody tr");
+        lista_alunos.forEach((dado,index) => {
+            if(index > 0){
+                var aux = {
+                    matricula: dado.querySelector("td:nth-child(1)").innerHTML,
+                    nome: dado.querySelector("td:nth-child(2)").innerHTML
+                }
+                alunos.push(aux);
+            }
+        });
+        var nova_turma = {
+            ano: ano,
+            nome: nome,
+            ensino: ensino,
+            turno: turno,
+            alunos: alunos
+        }
+        setTurma(nova_turma);
+        alert("Turma cadastrada");
+        location.reload(true);
     }
 }

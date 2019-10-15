@@ -19,13 +19,21 @@
     var _db = firebase.firestore();
     if(dados.nome != ''){
         var _cTurma = _db.collection('turma');
-        var id = dados.ano+dados.nome;
+        var id = dados.ano+"_"+dados.nome;
         _cTurma.doc(id).set({
             nome: dados.nome,
             ano: dados.ano,
             ensino: dados.ensino,
             turno: dados.turno
         });
+        var _cAlunos = _db.collection('aluno');
+        dados.alunos.forEach((stl) => {
+            _cAlunos.doc().set({
+                nome: stl.nome,
+                matricula: stl.matricula,
+                turma: id
+            });
+        })
     }
   }
 
