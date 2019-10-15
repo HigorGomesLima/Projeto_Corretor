@@ -16,7 +16,7 @@
 <body>
     <div class="fundo">
     </div>
-    <div class="load-animation">
+    <div class="loader">
     </div>
     <header>
         <div class="barra-superior">
@@ -38,7 +38,7 @@
         </div>
         <nav class="menu-principal">
             <ul>
-                <li class="opcao opcao-principal">Principal</li>
+                <li class="opcao opcao-principal" onclick="location.href = 'index.html'">Principal</li>
                 <li class="opcao opcao-provas">Provas
                     <ul class="submenu submenu-provas">
                         <li class="subopcao-provas">Cadastrar</li>
@@ -48,15 +48,15 @@
                 </li>
                 <li class="opcao opcao-turmas">Turmas
                     <ul class="submenu submenu-turmas">
-                        <li class="subopcao-provas">Cadastrar</li>
-                        <li class="subopcao-provas">Editar</li>
+                        <li class="subopcao-turmas" onclick="location.href = 'cadastro_turma.html'">Cadastrar</li>
+                        <li class="subopcao-turmas">Editar</li>
                     </ul>
                 </li>
                 <li class="opcao opcao-relatorio">Relatórios
                     <ul class="submenu submenu-relatorio">
-                        <li class="subopcao-provas">Prova</li>
-                        <li class="subopcao-provas">Turma</li>
-                        <li class="subopcao-provas">Data</li>
+                        <li class="subopcao-relatorio">Prova</li>
+                        <li class="subopcao-relatorio">Turma</li>
+                        <li class="subopcao-relatorio">Data</li>
                     </ul>
                 </li>
             </ul>

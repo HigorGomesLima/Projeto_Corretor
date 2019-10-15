@@ -26,6 +26,7 @@ var _logado = false;
                 _logado = true;
                 definirMenu();
                 $(".login,.fundo").fadeOut('slow');
+                $(".loader").fadeOut('slow');
             });
         }else{
             _logado = false;
@@ -34,10 +35,13 @@ var _logado = false;
             $(".info-log").html("<a>Bem vindo</a>");
             $(".tooltip-logar").text("Entrar");
             definirMenu();
+            $(".fundo").fadeOut('slow');
+            $(".loader").fadeOut('slow');
         }
     });
 })();
 
+//Botão de logar do header
 $(".btn-logar").click(function(){
     if(!_logado){
         if(_login_aberto){
@@ -57,6 +61,8 @@ $(".btn-logar").click(function(){
         }
     }
 });
+
+//Tele de opção de logout
 $(".btn-cancelar").click(function (){
     $(".login,.fundo,.logout").fadeOut('slow');
     _login_aberto = false;
@@ -64,14 +70,17 @@ $(".btn-cancelar").click(function (){
 
 $(".btn-confirmar").click(function (){
     firebase.auth().signOut().then(function (){
-        $(".logout,.fundo").fadeOut('slow');
+        $(".logout,").fadeOut('slow');
+        $(".loader").fadeIn('slow');
         _login_aberto = false;
         _usuario = 'visitante';
     }).catch(function (erro){
         $(".logout,.fundo").fadeOut('slow');
-        alert("Erro "+erro);
+        //alert("Erro "+erro);
     });
 });
+
+//Menu principal
 $(".opcao").click(function (){
     $(".submenu").hide();
     if(_menu_aberto != $(this).attr('class')){
@@ -84,11 +93,13 @@ $(".opcao").click(function (){
     }
 });
 
+//Botão de confirma o login
 $(".btn-entrar").click(function (){
     var email = $(".login input[name='email']").val();
     var password = $(".login input[name='password']").val();
     firebase.auth().signInWithEmailAndPassword(email, password).then(function (){
-        $(".login").fadeOut('fast');
+        $(".login").hide;
+        $(".loader").fadeIn('slow');
     }).catch(function (erro){
         alert("Usuário ou senha incorreta");
     })
