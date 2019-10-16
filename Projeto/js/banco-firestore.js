@@ -37,13 +37,32 @@
     }
   }
 
+function getTurma(codigo){
+    var _db = firebase.firestore();
+    if(codigo != ''){
+        var _turma = _db.collection('turma').doc(codigo);
+        return _turma.get().then(function (doc){
+            return {
+                nome: doc.data().nome,
+                ensino: doc.data().ensino,
+                ano: doc.data().ano,
+                turno: doc.data().turno,
+                codigo: codigo
+            }
+        });
+    }
+}
+
 function getUser(email){
     var _db = firebase.firestore();
     if(email != ''){
         var _user = _db.collection('user').doc(email);
         return _user.get().then(function(doc){
             return { nome: doc.data().nome,
-                    tipo: doc.data().tipo};
+                    tipo: doc.data().tipo,
+                   email: doc.data().email,
+                   turma: doc.data().turma,
+                   disciplina: doc.data().disciplina};
         })
     }
 }

@@ -2,6 +2,7 @@ var _menu_aberto = 'nada';
 var _login_aberto = false;
 var _usuario = 'visitante';
 var _logado = false;
+var _user = '';
 
 (function main(){
     const firebaseConfig = {
@@ -17,8 +18,8 @@ var _logado = false;
     firebase.initializeApp(firebaseConfig);
     firebase.auth().onAuthStateChanged(function (user) {
         if(user){
-            var user = getUser(user.email);
-            user.then(function(d){
+            _user = getUser(user.email);
+            _user.then(function(d){
                 _usuario = d.tipo;
                 $(".btn-logar img").attr("src","imagem/logout.svg");
                 $(".info-log").html("<a>"+d.nome+"</a>");
