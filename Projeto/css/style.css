@@ -240,18 +240,18 @@ body{
     margin: auto;
 }
 
-.content-cadastro-turma fieldset{
+.content-cadastro-turma fieldset,.content-bimestre fieldset{
     background: white;
     padding: 1em 0em;
 }
 
-.content-cadastro-turma label{
+.content-cadastro-turma label,.content-bimestre label{
     margin: 1em;
     font-weight: 500;
     font-size: 1em;
 }
 
-.content-cadastro-turma select{
+.content-cadastro-turma select,.content-bimestre select{
     margin: 0em 1em;
     font-size: 0.9em;
     padding: .5em;
@@ -261,7 +261,7 @@ body{
     color: white;
 }
 
-.content-cadastro-turma select:hover{
+.content-cadastro-turma select:hover,.content-bimestre select:hover{
     background: #6b97c5;
 }
 
@@ -288,14 +288,14 @@ body{
     background: #6b97c5;
 }
 
-.formulario-aluno .btn-importar-csv{
+.formulario-aluno .btn-importar-csv,.btn-carregar-disciplina{
     padding: .5em;
     background: #8db9e7;
     border-radius: 5px;
     color: white;
 }
 
-.formulario-aluno .btn-importar-csv:hover{
+.formulario-aluno .btn-importar-csv:hover,.btn-carregar-disciplina:hover{
     background: #6b97c5;
 }
 
@@ -382,4 +382,47 @@ body{
 
 .btn-cadastrar:hover{
     background: #063455
+}
+
+/*Conceito Bimestre*/
+.habilidades{
+    background: #deffd6;
+    border: 2px solid black;
+    margin: .5em auto;
+    position: relative;
+}
+
+.habilidades nav{
+    background: #8db9e7;
+    margin: 0%;
+    padding: .5em;
+}
+
+.habilidades ul{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.habilidades ul li{
+    display: inline-block;
+    list-style: none;
+    text-align: center;
+    cursor: pointer;
+}
+
+.habilidades ul li div{
+    padding: .5em 1em;
+    background: #185677;
+    color: white;
+    border: 1px solid #999;
+}
+
+.habilidades ul li div:hover{
+    background: #063455;
+}
+
+.habilidades table{
+    margin: 1em 0px;
+    border-collapse: collapse;
 }

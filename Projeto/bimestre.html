@@ -6,12 +6,12 @@
 	<meta name="author" content="Higor">
 	<meta name="description" content="inicio de estudo">
 	<meta name="keywords" content="html5, tecnologia">
-    <link rel="stylesheet" href="css/style.css">
     <script src="js/jquery-3.4.1.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-auth.js"></script>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="fundo">
@@ -78,74 +78,76 @@
             <button type="button" class="btn-cancelar">Cancelar</button>
         </form>
     </header>
-    <div class="fundo">
-    </div>
-    <main class="content content-cadastro-turma">
-        <section class="formulario">
-            <article class="article-nova-turma">
-                <h2>Cadastrar Turma</h2>
-                <fieldset class="formulario-ano-letivo">
-                    <label>Ano Letivo<select class="selecao-ano">
-                        <option name="ano" value="2019">2019</option>
-                        </select></label>
+    <main class="content content-bimestre">
+        <div class="fundo">
+        </div>
+        <section class="selecao-turma">
+            <article>
+                <fieldset>
+                    <label>Ano Letivo<select class="ano-letivo">
+                        <option>2019</option>
+                    </select></label>
+                    <label>Turma<select class="turmas">
+                        <!--Inserir turmas cadastradas-->
+                    </select></label>
                 </fieldset>
-                <fieldset class="forumulario-turma">
-                    <label class="texto-nome">Nome<input type="text" class="texto-nome" name="nome">
-                    </label><br>
-                    <label>Ensino<select class="selecao-ensino">
-                        <option name="ensino" value="ensino-fundamental1">Ensino Fundamental 1</option>
-                        <option name="ensino" value="ensino-fundamental2">Ensino Fundamental 2</option>
-                        <option name="ensino" value="ensino-medio">Ensino Médio</option>
-                        <option name="ensino" value="novo-ensino-medio">Novo Ensino Médio</option>
-                        </select></label>
-                    <label>Turno<select class="selecao-turno">
-                        <option name="turno" value="matutino">Matutino</option>
-                        <option name="turno" value="vespertino">Vespertino</option>
-                        <option name="turno" value="noturno">Noturno</option>
-                        </select></label>
-                </fieldset>
-                <fieldset class="formulario-aluno">
-                    <label class="selecionar-csv"><input type="file" name="arquivo-csv" accept=".csv"></label>
-                    <button type="button" class="btn-importar-csv">Enviar</button>
-                    <table class="tabela-aluno">
-                        <thead>
-                            <tr>
-                                <th colspan="4">Estudantes</th>
-                            </tr>
-                            <tr>
-                                <th>Matrícula</th><th>Nome</th>
-                            </tr>
-                        </thead>
-                        <tfoot>
-                            <tr>
-                                <td colspan="4">Total de alunos: <span class="numero-total">0</span></td>
-                            </tr>
-                        </tfoot>
-                        <tbody>
-                            <tr class="dados-aluno">
-                                <td>
-                                    <input type="number" name="matricula"/>
-                                </td>
-                                <td>
-                                    <input type="text" name="nome-aluno"/>
-                                </td>
-                                <td colspan="2"><div class="btn-adicionar-avulso"><img src="imagem/user-plus-solid.svg"></div></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <button class="btn-cadastrar">Cadastrar</button>
+                <fieldset>
+                    <label>Disciplina<select class="disciplina">
+                        <!--Inserir disciplinas cadastradas-->
+                    </select></label>
+                    <button class="btn-carregar-disciplina">Carregar</button>
+                    <section class="habilidades">
+                        <header>
+                            <nav class="bimestre">
+                                <ul>
+                                    <li value="1"><div>1º Bimestre</div></li>
+                                    <li value="2"><div>2º Bimestre</div></li>
+                                    <li value="3"><div>3º Bimestre</div></li>
+                                    <li value="4"><div>4º Bimestre</div></li>
+                                </ul>
+                            </nav>
+                        </header>
+                        <main>
+                            <table class="descricao-habilidades">
+                                <thead>
+                                    <tr>
+                                        <th>Codigo</th><th>Nome</th><th>Remover</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="3">+</td>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="text" name="codigo"></td>
+                                        <td><input type="text" name="nome"></td>
+                                        <td><input type="text" name="codigo"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </main>
+                    </section>
                 </fieldset>
             </article>
-        </section>
-        <section class="turmas-cadastradas">
+            <article>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Matrícula</th><th>Nome</th><th>1º Bimestre</th><th>2º Bimestre</th><th>3º Bimestre</th><th>4º Bimestre</th>
+                        </tr>
+                    </thead>
+                </table>
+            </article>
         </section>
     </main>
     <footer>
         <div class="fundo">
         </div>
     </footer>
-    <script src="js/main.js"></script>
-    <script src="js/cadastro-turma.js"></script>
     <script src="js/banco-firestore.js"></script>
+    <script src="js/cadastro-turma.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
