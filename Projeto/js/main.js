@@ -2,7 +2,7 @@ var _menu_aberto = 'nada';
 var _login_aberto = false;
 var _usuario = 'visitante';
 var _logado = false;
-var _user = '';
+var _user;
 
 (function main(){
     const firebaseConfig = {
