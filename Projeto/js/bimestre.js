@@ -1,6 +1,7 @@
 var _disciplina;
 var _turma;
 var _bUser;
+var _habilidades;
 (function Bimestre(){
     $(".fundo,.loader").fadeIn('fast');
     (function setUser(){
@@ -24,3 +25,18 @@ var _bUser;
         }
     })();
 })();
+
+$(".btn-carregar-disciplina").click(function (){
+    _disciplina = $(".disciplina").val();
+    $.getJSON("js/habilidades.json",function (data){
+        _habilidades = data[_disciplina];
+    })
+})
+
+$(".descricao-habilidades input[name='codigo']").keyup(function(){
+    if(_habilidades != undefined){
+        var descricao = $(".descricao-habilidades textarea[name='descricao']");
+        var codigo = $(".descricao-habilidades input[name='codigo']").val().toUpperCase();
+        descricao.val(_habilidades[codigo]);
+    }
+});

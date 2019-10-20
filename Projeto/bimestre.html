@@ -94,6 +94,8 @@
                 <fieldset>
                     <label>Disciplina<select class="disciplina">
                         <!--Inserir disciplinas cadastradas-->
+                        <option>Matemática</option>
+                        <option>Linguagem</option>
                     </select></label>
                     <button class="btn-carregar-disciplina">Carregar</button>
                     <section class="habilidades">
@@ -111,7 +113,7 @@
                             <table class="descricao-habilidades">
                                 <thead>
                                     <tr>
-                                        <th>Codigo</th><th>Nome</th><th>Remover</th>
+                                        <th>Codigo</th><th>Descrição</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
@@ -122,8 +124,8 @@
                                 <tbody>
                                     <tr>
                                         <td><input type="text" name="codigo"></td>
-                                        <td><input type="text" name="nome"></td>
-                                        <td><input type="text" name="codigo"></td>
+                                        <td><textarea name="descricao"></textarea></td>
+                                        <td><img src="imagem/trash-alt-solid.svg" class="exluir"></td>
                                     </tr>
                                 </tbody>
                             </table>

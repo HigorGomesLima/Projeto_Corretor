@@ -387,21 +387,26 @@ body{
 /*Conceito Bimestre*/
 .habilidades{
     background: #deffd6;
-    border: 2px solid black;
     margin: .5em auto;
-    position: relative;
+    width: 70em;
+    border-radius: 10px;
 }
 
 .habilidades nav{
-    background: #8db9e7;
-    margin: 0%;
-    padding: .5em;
+    background: white;
+    margin: 0px auto;
+    padding: 0em;
 }
 
 .habilidades ul{
-    list-style: none;
-    margin: 0px;
+    width: 37em;
     padding: 0px;
+    background: #deffd6;
+    border-radius: 10px 10px 0% 0%;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0px auto;
 }
 
 .habilidades ul li{
@@ -409,6 +414,7 @@ body{
     list-style: none;
     text-align: center;
     cursor: pointer;
+    padding: .5em;
 }
 
 .habilidades ul li div{
@@ -416,6 +422,8 @@ body{
     background: #185677;
     color: white;
     border: 1px solid #999;
+    flex-shrink: 1;
+    margin: 0px .3em;
 }
 
 .habilidades ul li div:hover{
@@ -423,6 +431,32 @@ body{
 }
 
 .habilidades table{
-    margin: 1em 0px;
+    margin: 1em auto;
     border-collapse: collapse;
+}
+
+.descricao-habilidades tbody td{
+    text-align: center;
+}
+
+.descricao-habilidades input[name='codigo']{
+    text-transform: uppercase;
+    width: 5em;
+    height: 2.3em;
+    text-align: center;
+    font-size: 1em;
+}
+
+.descricao-habilidades textarea[name='descricao']{
+    width: 60em;
+    height: 3em;
+    text-align: center;
+    font-family: sans-serif;
+    color: #555;
+    
+}
+
+.descricao-habilidades td img{
+    width: 1.7em;
+    margin: 0 .5em;
 }
