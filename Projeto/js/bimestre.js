@@ -30,13 +30,23 @@ $(".btn-carregar-disciplina").click(function (){
     _disciplina = $(".disciplina").val();
     $.getJSON("js/habilidades.json",function (data){
         _habilidades = data[_disciplina];
-    })
+    });
+    $(".descricao-habilidades input[name='codigo']").bind('keyup',atualizar);
 })
 
-$(".descricao-habilidades input[name='codigo']").keyup(function(){
+function atualizar(){
     if(_habilidades != undefined){
-        var descricao = $(".descricao-habilidades textarea[name='descricao']");
-        var codigo = $(".descricao-habilidades input[name='codigo']").val().toUpperCase();
-        descricao.val(_habilidades[codigo]);
+        var descricao = $(this).parent().parent().children("td:nth-child(2)");
+        var codigo = $(this).val().toUpperCase();
+        if(_habilidades[codigo] == undefined){
+            descricao.html("<td><textarea name='descricao'>Código não localizado</textarea></td>");
+        }else{
+            descricao.html("<td><textarea name='descricao'>"+_habilidades[codigo]+"</textarea></td>");
+        }
     }
+};
+
+$(".btn-adicionar").click(function (){
+    $(".descricao-habilidades tbody").append("<tr><td><input type='text' name='codigo'></td><td><textarea name='descricao'></textarea></td><td><img src='imagem/trash-alt-solid.svg' class='exluir'></td></tr>");
+    $(".descricao-habilidades input[name='codigo']").bind('keyup',atualizar);
 });
