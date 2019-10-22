@@ -30,23 +30,33 @@ $(".btn-carregar-disciplina").click(function (){
     _disciplina = $(".disciplina").val();
     $.getJSON("js/habilidades.json",function (data){
         _habilidades = data[_disciplina];
+        $(".habilidades").fadeToggle("slow");
     });
     $(".descricao-habilidades input[name='codigo']").bind('keyup',atualizar);
+    $(".descricao-habilidades .exluir").bind('click',removerCampo);
 })
 
+function removerCampo(){
+    var par = $(this).parent().parent();
+    par.remove();
+}
+
 function atualizar(){
-    if(_habilidades != undefined){
-        var descricao = $(this).parent().parent().children("td:nth-child(2)");
-        var codigo = $(this).val().toUpperCase();
+    var codigo = $(this).val().toUpperCase();
+    var descricao = $(this).parent().parent().children("td:nth-child(2)");
+    if(_habilidades != undefined && codigo.length > 1){
         if(_habilidades[codigo] == undefined){
-            descricao.html("<td><textarea name='descricao'>Código não localizado</textarea></td>");
+            descricao.html("<td><textarea readonly name='descricao'>Código não localizado</textarea></td>");
         }else{
-            descricao.html("<td><textarea name='descricao'>"+_habilidades[codigo]+"</textarea></td>");
+            descricao.html("<td><textarea readonly name='descricao'>"+_habilidades[codigo]+"</textarea></td>");
         }
+    }else{
+        descricao.html("<td><textarea readonly name='descricao'></textarea></td>");
     }
 };
 
 $(".btn-adicionar").click(function (){
     $(".descricao-habilidades tbody").append("<tr><td><input type='text' name='codigo'></td><td><textarea name='descricao'></textarea></td><td><img src='imagem/trash-alt-solid.svg' class='exluir'></td></tr>");
     $(".descricao-habilidades input[name='codigo']").bind('keyup',atualizar);
+    $(".descricao-habilidades .exluir").bind('click',removerCampo);
 });

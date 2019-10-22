@@ -390,6 +390,7 @@ body{
     margin: .5em auto;
     width: 70em;
     border-radius: 10px;
+    display: none;
 }
 
 .habilidades nav{
@@ -435,28 +436,56 @@ body{
     border-collapse: collapse;
 }
 
+.habilidades table thead th{
+    padding: .3em;
+    margin: 0px;
+}
+
 .descricao-habilidades tbody td{
     text-align: center;
+    padding: 0px;
+    margin: 0px;
 }
 
 .descricao-habilidades input[name='codigo']{
     text-transform: uppercase;
-    width: 5em;
-    height: 2.3em;
+    width: 3em;
+    height: 2em;
     text-align: center;
     font-size: 1em;
+    margin: 0px;
 }
 
 .descricao-habilidades textarea[name='descricao']{
-    width: 60em;
+    width: 70em;
     height: 3em;
     text-align: center;
     font-family: sans-serif;
     color: #555;
-    
+    font-size: .7em;
+    resize: none;
 }
 
 .descricao-habilidades td img{
-    width: 1.7em;
+    width: 1.5em;
     margin: 0 .5em;
+}
+
+.btn-adicionar div{
+    background: #8db9e7;
+    width: 1em;
+    height: 1em;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: white;
+    padding: .2em;
+    margin: auto;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-adicionar div:hover{
+    background: #6b97c5;
 }
