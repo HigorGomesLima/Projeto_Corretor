@@ -66,3 +66,21 @@ function getUser(email){
         })
     }
 }
+
+function getFicha_Bimestral(email,turma,disciplina){
+    var _db = firebase.firestore();
+    if(email != ''){
+        var _ficha = _db.collection('ficha_bimestral').where('professor','==',email).where('turma','==',turma).where('disciplina','==',disciplina);
+        return _ficha.get().then(function (lista){
+            var r = [];
+            lista.forEach(function (doc){
+                var aux = {
+                    bimestre: doc.data().bimestre,
+                    habilidades: doc.data().habilidades
+                }
+                r.push(aux);
+            })
+            return r;
+        });
+    }
+}
