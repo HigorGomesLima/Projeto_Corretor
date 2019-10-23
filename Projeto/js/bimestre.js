@@ -4,6 +4,8 @@ var _bUser;
 var _habilidades;
 var _bimestres;
 var _email;
+var _bimestre_selecionado;
+//Carregar usuário
 (function Bimestre(){
     $(".fundo,.loader").fadeIn('fast');
     (function setUser(){
@@ -45,6 +47,7 @@ $(".btn-carregar-disciplina").click(function (){
                 $(".descricao-habilidades tbody").append("<tr><td><input type='text' name='codigo' value='"+h+"'></td><td><textarea name='descricao'>"+_habilidades[h]+"</textarea></td><td><img src='imagem/trash-alt-solid.svg' class='exluir'></td></tr>");
                 $(".descricao-habilidades input[name='codigo']").bind('keyup',atualizar);
                 $(".descricao-habilidades .exluir").bind('click',removerCampo);
+                _bimestre_selecionado = 0;
             });
             $(".habilidades").fadeToggle("slow");
             if(_bimestres[0].length == 0){
@@ -76,14 +79,32 @@ function atualizar(){
     }
 };
 
-$(".btn-adicionar").click(function (){
+$(".btn-adicionar div").click(function (){
     $(".descricao-habilidades tbody").append("<tr><td><input type='text' name='codigo'></td><td><textarea name='descricao'></textarea></td><td><img src='imagem/trash-alt-solid.svg' class='exluir'></td></tr>");
     $(".descricao-habilidades input[name='codigo']").bind('keyup',atualizar);
     $(".descricao-habilidades .exluir").bind('click',removerCampo);
 });
 
+$(".btn-cadastrar-habilidades").click(function (){
+    var lista_habilidades = [];
+    $(".descricao-habilidades tbody tr td input[name='codigo']").each( (i,h) => {
+        if(h.value != ''){
+            lista_habilidades.push(h.value.toUpperCase());
+        }
+    });
+    var obj = {
+        bimestre: (_bimestre_selecionado+1),
+        disciplina: _disciplina,
+        professor: _email,
+        turma: $(".selecao-turma .turmas").val(),
+        habilidades: lista_habilidades
+    }
+    setFicha_Bimestral(obj);
+})
+
 function carregarBimestre(){
     var valor = parseInt($(this).val() -1);
+    _bimestre_selecionado = valor;
     $(".descricao-habilidades tbody").empty();
     if(_bimestres[valor] == undefined || _bimestres[valor].habilidades.length == 0){
         $(".descricao-habilidades tbody").append("<tr><td><input type='text' name='codigo'></td><td><textarea name='descricao'></textarea></td><td><img src='imagem/trash-alt-solid.svg' class='exluir'></td></tr>");

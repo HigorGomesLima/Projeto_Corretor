@@ -155,7 +155,7 @@ body{
     border-radius: 15%;
     position: absolute;
     left: 40%;
-    top: 200%;
+    top: 50%;
     display: none;
     z-index: 101;
 }
@@ -481,11 +481,25 @@ body{
     color: white;
     padding: .2em;
     margin: auto;
-    border: 1px solid black;
+    border: 1px solid #ccc;
     border-radius: 5px;
     cursor: pointer;
 }
 
 .btn-adicionar div:hover{
+    background: #6b97c5;
+}
+
+.btn-cadastrar-habilidades{
+    padding: .5em;
+    background: #8db9e7;
+    border-radius: 5px;
+    color: white;
+    width: 5em;
+    margin: 0em 47%;
+    cursor: pointer;
+}
+
+.btn-cadastrar-habilidades:hover{
     background: #6b97c5;
 }

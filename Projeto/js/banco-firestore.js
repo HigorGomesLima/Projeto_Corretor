@@ -70,7 +70,10 @@ function getUser(email){
 function getFicha_Bimestral(email,turma,disciplina){
     var _db = firebase.firestore();
     if(email != ''){
-        var _ficha = _db.collection('ficha_bimestral').where('professor','==',email).where('turma','==',turma).where('disciplina','==',disciplina);
+        var _ficha = _db.collection('ficha_bimestral')
+        .where('professor','==',email)
+        .where('turma','==',turma)
+        .where('disciplina','==',disciplina);
         return _ficha.get().then(function (lista){
             var r = [];
             lista.forEach(function (doc){
@@ -82,5 +85,38 @@ function getFicha_Bimestral(email,turma,disciplina){
             })
             return r;
         });
+    }
+}
+
+function setFicha_Bimestral(obj_bimeste){
+    var _db = firebase.firestore();
+    var _criar = true;
+    if(obj_bimeste.professor != ''){
+        var _ficha = _db.collection('ficha_bimestral')
+        .where('professor','==',obj_bimeste.professor)
+        .where('turma','==',obj_bimeste.turma)
+        .where('disciplina','==',obj_bimeste.disciplina)
+        .where('bimestre','==',obj_bimeste.bimestre);
+        _ficha.get().then(function (doc){
+            doc.forEach((element) => {
+                _criar = false;
+                if(element.exists){
+                    element.ref.update({
+                        habilidades: obj_bimeste.habilidades
+                    })
+                }
+            })
+            if(_criar){
+            _db.collection('ficha_bimestral').doc().set({
+                bimestre: obj_bimeste.bimestre,
+                disciplina: obj_bimeste.disciplina,
+                professor: obj_bimeste.professor,
+                turma: obj_bimeste.turma,
+                habilidades: obj_bimeste.habilidades
+            })
+        }
+        }).catch(function (erro){
+            console.log(erro);
+        })
     }
 }

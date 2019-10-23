@@ -18,6 +18,17 @@
     </div>
     <div class="loader">
     </div>
+    <form class="login">
+            <label>E-mail<input type="email" name="email"></label>
+            <label>Senha<input type="password" name="password"></label>
+            <button type="button" class="btn-entrar">Entrar</button>
+            <button type="button" class="btn-cancelar">Cancelar</button>
+    </form>
+    <form class="logout">
+            <a>Deseja sair?</a>
+            <button type="button" class="btn-confirmar">Confirmar</button>
+            <button type="button" class="btn-cancelar">Cancelar</button>
+    </form>
     <header>
         <div class="barra-superior">
             <div class="logo">
@@ -66,17 +77,6 @@
                 </li>
             </ul>
         </nav>
-        <form class="login">
-            <label>E-mail<input type="email" name="email"></label>
-            <label>Senha<input type="password" name="password"></label>
-            <button type="button" class="btn-entrar">Entrar</button>
-            <button type="button" class="btn-cancelar">Cancelar</button>
-        </form>
-        <form class="logout">
-            <a>Deseja sair?</a>
-            <button type="button" class="btn-confirmar">Confirmar</button>
-            <button type="button" class="btn-cancelar">Cancelar</button>
-        </form>
     </header>
     <main class="content content-bimestre">
         <div class="fundo">
@@ -94,8 +94,6 @@
                 <fieldset>
                     <label>Disciplina<select class="disciplina">
                         <!--Inserir disciplinas cadastradas-->
-                        <option>Matemática</option>
-                        <option>Linguagem</option>
                     </select></label>
                     <button class="btn-carregar-disciplina">Carregar</button>
                     <section class="habilidades">
@@ -124,6 +122,7 @@
                                 <tbody>
                                 </tbody>
                             </table>
+                            <button class="btn btn-cadastrar-habilidades">Salvar</button>
                         </main>
                     </section>
                 </fieldset>
