@@ -503,3 +503,56 @@ body{
 .btn-cadastrar-habilidades:hover{
     background: #6b97c5;
 }
+
+.lista-alunos{
+    background: white;
+}
+
+.lista-alunos table{
+    border-collapse: collapse;
+    width: 60em;
+    margin: 2em auto;
+}
+
+.lista-alunos table th[rowspan='2']{
+    padding: 0em .3em;
+}
+
+.lista-alunos table th:not([rowspan='2']){
+    padding: .3em;
+}
+
+.lista-alunos table th[rowspan='2']:nth-child(1){
+    width: 8em;
+}
+
+.lista-alunos table th[rowspan='2']:nth-child(2){
+    width: 35em;
+}
+
+.lista-alunos table tr:nth-child(1) th:nth-child(3){
+    width: 12em;
+}
+
+.lista-alunos table tr:nth-child(2) th{
+    width: 3em;
+}
+
+.lista-alunos table tbody tr:nth-child(even){
+    background: #ddd;
+}
+
+.lista-alunos table tbody td{
+    padding: .3em;
+    font-size: .9em;
+    
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+/*#9efa9a #c3bf77 #df8888*/
+.lista-alunos table tbody .btn-conceito-indovidual{
+    background: #c3bf77;
+    font-weight: bold;
+}

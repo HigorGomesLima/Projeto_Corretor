@@ -100,10 +100,10 @@
                         <header>
                             <nav class="bimestre">
                                 <ul>
-                                    <li value="1"><div>1º Bimestre</div></li>
-                                    <li value="2"><div>2º Bimestre</div></li>
-                                    <li value="3"><div>3º Bimestre</div></li>
-                                    <li value="4"><div>4º Bimestre</div></li>
+                                    <li value="1"><div>Bimestre I</div></li>
+                                    <li value="2"><div>Bimestre II</div></li>
+                                    <li value="3"><div>Bimestre III</div></li>
+                                    <li value="4"><div>Bimestre IV</div></li>
                                 </ul>
                             </nav>
                         </header>
@@ -127,13 +127,27 @@
                     </section>
                 </fieldset>
             </article>
-            <article>
+            <article class="lista-alunos">
                 <table>
                     <thead>
                         <tr>
-                            <th>Matrícula</th><th>Nome</th><th>1º Bimestre</th><th>2º Bimestre</th><th>3º Bimestre</th><th>4º Bimestre</th>
+                            <th rowspan="2">Matrícula</th><th rowspan="2">Nome</th><th colspan="4">Bimestre</th>
+                        </tr>
+                        <tr>
+                            <th>I</th><th>II</th><th>III</th><th>IV</th>
                         </tr>
                     </thead>
+                    <tbody>
+                        <tr>
+                            <td>99999</td><td>Jose Algo</td><td class="btn-conceito-indovidual">A</td><td>B</td><td>C</td><td>-</td>
+                        </tr>
+                        <tr>
+                            <td>1000000</td><td>Maria Algo</td><td>-</td><td>B</td><td>A</td><td>-</td>
+                        </tr>
+                        <tr>
+                            <td>78787</td><td>Teste Algo</td><td>-</td><td>B</td><td>C</td><td>A</td>
+                        </tr>
+                    </tbody>
                 </table>
             </article>
         </section>
