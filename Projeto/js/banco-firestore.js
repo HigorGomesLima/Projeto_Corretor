@@ -120,3 +120,37 @@ function setFicha_Bimestral(obj_bimeste){
         })
     }
 }
+
+function getBimestreAlunos(turma,disciplina){
+    var lista_alunos = [];
+    var _db = firebase.firestore();
+    var _alunos = _db.collection('aluno').where('turma','==',turma);
+    return _alunos.get().then((stl) => {
+        stl.forEach((doc_aluno) => {
+            var aluno = {
+                id: doc_aluno.id,
+                nome: doc_aluno.data().nome,
+                matricula: doc_aluno.data().matricula,
+                bimestres: []
+            };
+            doc_aluno.ref.collection('ficha_individual').get().then((stl2) => {
+                var bimestres = [];
+                stl2.forEach((doc_ficha) => {
+                    var ficha = {
+                        id: doc_ficha.id,
+                        bimestre: doc_ficha.data().bimestre,
+                        conceito: doc_ficha.data().conceito,
+                        habilidades: doc_ficha.data().habilidades,
+                        atitudes: doc_ficha.data().atitudes,
+                        melhoria: doc_ficha.data().melhoria,
+                        observacao: doc_aluno.data().observacao
+                    };
+                    bimestres[(doc_ficha.data().bimestre-1)] = ficha;
+                });
+                aluno.bimestres = bimestres;
+                lista_alunos.push(aluno);
+            });
+        });
+        return lista_alunos;
+    });
+}

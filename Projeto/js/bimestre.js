@@ -5,6 +5,7 @@ var _habilidades;
 var _bimestres;
 var _email;
 var _bimestre_selecionado;
+var _lista_conceitos = {};
 //Carregar usuário
 (function Bimestre(){
     $(".fundo,.loader").fadeIn('fast');
@@ -33,6 +34,7 @@ var _bimestre_selecionado;
 
 $(".btn-carregar-disciplina").click(function (){
     _disciplina = $(".disciplina").val();
+    $(".descricao-habilidades tbody").empty();
     $.getJSON("js/habilidades.json",function (data){
         _habilidades = data[_disciplina];
         var cTurma = $(".selecao-turma .turmas").val();
@@ -55,10 +57,11 @@ $(".btn-carregar-disciplina").click(function (){
                 $(".descricao-habilidades input[name='codigo']").bind('keyup',atualizar);
                 $(".descricao-habilidades .exluir").bind('click',removerCampo);
             }
-        })
+        });
     });
+    atualizarAlunos();
     $(".habilidades ul li").bind('click',carregarBimestre);
-})
+});
 
 function removerCampo(){
     var par = $(this).parent().parent();
@@ -116,5 +119,81 @@ function carregarBimestre(){
             $(".descricao-habilidades input[name='codigo']").bind('keyup',atualizar);
             $(".descricao-habilidades .exluir").bind('click',removerCampo);
         });
+    }
+}
+
+function atualizarAlunos(){
+    var lista_alunos = getBimestreAlunos(_turma[0],_disciplina);
+    var lista_aux;
+    lista_alunos.then((lista) => {
+        lista_aux = lista;
+    });
+    (function timePromise() {
+        if(lista_aux == undefined){
+            setTimeout(timePromise,500);
+        }else{
+            if(lista_aux.length > 0){
+                lista_aux.sort(function (A,B){
+                    if(A.nome<B.nome){
+                        return -1;
+                    }else if(B.nome<A.nome){
+                        return 1;
+                    }else{
+                        return 0;
+                    }
+                });
+                listarAlunos();
+            }else{
+                setTimeout(timePromise,500);
+            }
+        }
+    })();
+    function listarAlunos(lista){
+        if(lista_aux == undefined){
+            console.log("error");
+        }else{
+            lista_aux.forEach((stl) => {
+                var aluno = {
+                    id: stl.id,
+                    matricula: stl.matricula,
+                    nome: stl.nome
+                };
+            var bimestres = [];
+            for(var i = 0;i < 4;i++){
+                if(stl.bimestres[i] == undefined){
+                    bimestres[i] = {
+                        bimestre: (i+1),
+                        conceito: '-'
+                    };
+                }else{
+                    bimestres[i] = {
+                        id: stl.bimestres[i].id,
+                        conceito: stl.bimestres[i].conceito
+                    };
+                }
+            }
+            aluno['bimestres'] = bimestres;
+            _lista_conceitos[aluno.matricula] = aluno;
+        });
+            listarTabela();
+        }
+    }
+    function listarTabela(){
+        if(_lista_conceitos != {}){
+            $(".lista-alunos tbody").empty();
+            let array_alunos = Object.entries(_lista_conceitos);
+            array_alunos.sort(function (A,B){
+                if(A[1].nome < B[1].nome) { return -1;}
+                else if(A[1].nome > B[1].nome) {return 1;}
+                else {return 0;}
+            })
+            array_alunos.forEach((stl) => {
+                var aluno_html = "<tr value='"+stl[1].matricula+"'><td>"+stl[1].matricula+"</td><td>"+stl[1].nome+"</td>";
+                stl[1].bimestres.forEach((bim) => {
+                    aluno_html += "<td class='btn-conceito"+bim.conceito+" value='"+bim.bimestre+"'>"+bim.conceito+"</td>";
+                });
+                $(".lista-alunos tbody").append(aluno_html);
+            });
+        }
     }
 }
